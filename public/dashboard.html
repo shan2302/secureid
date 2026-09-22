@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — SecureID</title>
+  <meta name="description" content="SecureID authenticated dashboard.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body { background: var(--clr-gray-50); }
+    .page-header {
+      background: var(--clr-white);
+      border-bottom: 1px solid var(--clr-gray-100);
+    }
+    .section-title {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--clr-gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--sp-3);
+    }
+    .demo-row {
+      display: flex;
+      gap: var(--sp-3);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-4);
+    }
+    .demo-row .btn { max-width: 220px; }
+    .meta-note {
+      font-size: var(--fs-xs);
+      color: var(--clr-gray-400);
+      margin-top: var(--sp-2);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="page-header">
+  <div class="dashboard-wrap" style="padding-top:0;padding-bottom:0;">
+    <div class="dash-header">
+      <div class="dash-brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B5BDB"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <rect x="9" y="11" width="6" height="5" rx="1"/>
+          <path d="M12 11V9a2 2 0 012-2"/>
+        </svg>
+        SecureID
+      </div>
+
+      <div style="display:flex;align-items:center;gap:var(--sp-3);">
+        <span id="dash-greet" style="font-size:var(--fs-sm);color:var(--clr-gray-600);"></span>
+        <button id="logout-btn" class="btn btn-outline" style="width:auto;padding:8px 16px;">
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <span class="btn-text">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="vertical-align:middle;margin-right:4px" aria-hidden="true">
+              <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Logout
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="dashboard-wrap">
+
+  <!-- =====================================================
+       User Profile Card (/api/me)
+       ===================================================== -->
+  <div class="user-card">
+    <div class="user-card-header">
+      <div id="user-avatar" class="user-avatar">?</div>
+      <div>
+        <div id="user-name" style="font-size:var(--fs-lg);font-weight:700;color:var(--clr-gray-900);">
+          Loading...
+        </div>
+        <div id="user-email" style="font-size:var(--fs-sm);color:var(--clr-gray-500);margin-top:2px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="user-info-grid">
+      <div class="user-info-item">
+        <div class="user-info-label">Phone</div>
+        <div id="user-phone" class="user-info-value">—</div>
+      </div>
+      <div class="user-info-item">
+        <div class="user-info-label">MFA Status</div>
+        <div id="user-mfa" class="user-info-value">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       GET /api/me Response
+       ===================================================== -->
+  <p class="section-title">GET /api/me — Response</p>
+  <div class="api-demo-card">
+    <div class="api-demo-label">// Server-validated user profile (never exposes passwordHash or totpSecret)</div>
+    <pre id="api-me-response" class="api-demo-response">Loading...</pre>
+  </div>
+  <p class="meta-note">
+    This data was fetched from <code>/api/me</code> using your session cookie (httpOnly).
+    The server verified the session before returning your profile.
+  </p>
+
+  <!-- =====================================================
+       JWT Bearer Token Demo
+       ===================================================== -->
+  <p class="section-title" style="margin-top:var(--sp-8);">
+    POST /api/token → GET /api/protected — JWT Bearer Demo
+  </p>
+
+  <div class="demo-row">
+    <button id="jwt-demo-btn" class="btn btn-primary" style="width:auto;padding:12px 24px;">
+      <span class="btn-spinner" aria-hidden="true"></span>
+      <span class="btn-text">Run JWT Demo</span>
+    </button>
+  </div>
+
+  <div class="api-demo-card">
+    <div class="api-demo-label">// Step 1: POST /api/token (issues short-lived JWT)</div>
+    <pre id="jwt-token-result" class="api-demo-response">Click "Run JWT Demo" to see the flow...</pre>
+  </div>
+
+  <div class="api-demo-card" style="margin-top:var(--sp-3);">
+    <div class="api-demo-label">// Step 2: GET /api/protected (validates JWT Bearer token)</div>
+    <pre id="jwt-protected-result" class="api-demo-response"></pre>
+  </div>
+
+  <p class="meta-note">
+    The JWT is NOT stored in localStorage — it is issued as an httpOnly cookie
+    for the session, and as a Bearer token for the /api/protected demo only.
+  </p>
+
+  <!-- =====================================================
+       Authentication Architecture Explanation
+       ===================================================== -->
+  <div class="user-card" style="margin-top:var(--sp-8);">
+    <p class="section-title">How Authentication Works</p>
+
+    <div style="font-size:var(--fs-sm);color:var(--clr-gray-600);line-height:1.8;">
+      <p style="margin-bottom:var(--sp-3);">
+        <strong>Session Auth:</strong> After successful login + MFA, the server creates a session
+        (<code>secureid.sid</code> httpOnly cookie). Every request sends this cookie automatically.
+        <code>/api/me</code> reads the session, looks up the user in the store, and returns the profile.
+      </p>
+      <p style="margin-bottom:var(--sp-3);">
+        <strong>JWT Auth:</strong> <code>POST /api/token</code> issues a short-lived (15 min) JWT
+        signed with <code>JWT_SECRET</code>. The client sends it as
+        <code>Authorization: Bearer &lt;token&gt;</code>. The server verifies the signature before
+        granting access to <code>/api/protected</code>.
+      </p>
+      <p style="margin-bottom:var(--sp-3);">
+        <strong>Logout:</strong> <code>POST /api/logout</code> adds the JWT to a revoked-token set,
+        destroys the server-side session, and clears both cookies. After logout,
+        <code>/api/me</code> returns 401.
+      </p>
+      <p>
+        <strong>OTP:</strong> Generated with <code>crypto.randomInt</code>, hashed with bcrypt,
+        stored as a challenge. Printed to server console (simulated email/SMS). Single-use,
+        5-minute expiry, 3 attempt limit.
+      </p>
+    </div>
+  </div>
+
+</div><!-- /dashboard-wrap -->
+
+<script src="/js/validation.js"></script>
+<script src="/js/auth.js"></script>
+
+</body>
+</html>

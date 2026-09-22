@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — SecureID</title>
+  <meta name="description" content="Create your SecureID account with multi-factor authentication.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="page-layout">
+
+  <!-- =====================================================
+       SIDEBAR (left column — desktop)
+       ===================================================== -->
+  <aside class="sidebar" aria-label="SecureID branding">
+    <div class="sidebar-logo">
+      <div class="sidebar-icon-wrap">
+        <!-- Shield + lock icon -->
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <rect x="9" y="11" width="6" height="5" rx="1"/>
+          <path d="M12 11V9a2 2 0 012-2"/>
+        </svg>
+      </div>
+      <span class="sidebar-name">SecureID</span>
+      <p class="sidebar-tagline">Secure access.<br>Your identity protected.</p>
+    </div>
+  </aside>
+
+  <!-- =====================================================
+       MAIN CONTENT (right column)
+       ===================================================== -->
+  <main class="main-content">
+
+    <!-- Step Progress Bar -->
+    <nav class="step-bar" aria-label="Registration progress">
+      <div class="step-item active" aria-current="step">
+        <div class="step-circle">1</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle">4</div>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item">
+        <div class="step-circle">5</div>
+      </div>
+    </nav>
+
+    <!-- Form Area -->
+    <div class="form-area">
+      <div class="form-box">
+
+        <!-- ================================================
+             SCREEN 1: Registration Form
+             ================================================ -->
+        <section id="screen-reg" class="screen active" aria-labelledby="reg-title">
+
+          <div class="screen-header">
+            <h1 id="reg-title" class="screen-title">Create your account</h1>
+            <p class="screen-subtitle">Let's get you started</p>
+          </div>
+
+          <!-- Global alert -->
+          <div id="reg-alert" class="alert alert-error" role="alert">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span class="alert-message"></span>
+          </div>
+
+          <form id="register-form" novalidate>
+
+            <!-- Full Name -->
+            <div class="field-group">
+              <label for="reg-name" class="field-label">Full Name</label>
+              <div class="field-wrap">
+                <span class="field-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </span>
+                <input type="text" id="reg-name" class="field-input"
+                  placeholder="Priya Sharma" autocomplete="name" required
+                  aria-describedby="reg-name-error">
+              </div>
+              <p id="reg-name-error" class="field-error" role="alert"></p>
+            </div>
+
+            <!-- Email -->
+            <div class="field-group">
+              <label for="reg-email" class="field-label">Email</label>
+              <div class="field-wrap">
+                <span class="field-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </span>
+                <input type="email" id="reg-email" class="field-input"
+                  placeholder="priya.sharma@email.com" autocomplete="email" required
+                  aria-describedby="reg-email-error">
+              </div>
+              <p id="reg-email-error" class="field-error" role="alert"></p>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="field-group">
+              <label for="reg-phone" class="field-label">Mobile Number</label>
+              <div class="phone-wrap">
+                <div class="country-code" aria-label="Country code India +91">
+                  <span>🇮🇳</span>
+                  <span>+91</span>
+                </div>
+                <input type="tel" id="reg-phone" class="phone-input"
+                  placeholder="98765 43210" autocomplete="tel-national" required
+                  aria-describedby="reg-phone-error">
+              </div>
+              <p id="reg-phone-error" class="field-error" role="alert"></p>
+            </div>
+
+            <!-- Password -->
+            <div class="field-group">
+              <label for="reg-password" class="field-label">Password</label>
+              <div class="field-wrap">
+                <span class="field-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0110 0v4"/>
+                  </svg>
+                </span>
+                <input type="password" id="reg-password" class="field-input"
+                  placeholder="••••••••" autocomplete="new-password" required
+                  aria-describedby="reg-password-error">
+                <button type="button" id="toggle-password" class="field-icon-right"
+                  aria-label="Toggle password visibility">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </button>
+              </div>
+              <p id="reg-password-error" class="field-error" role="alert"></p>
+
+              <!-- Password strength rules -->
+              <div id="password-rules" class="password-rules" aria-live="polite">
+                <p class="password-rules-title">Password must contain:</p>
+                <div class="password-rule" data-rule="length">
+                  <span class="rule-icon" aria-hidden="true"></span>
+                  <span>At least 8 characters</span>
+                </div>
+                <div class="password-rule" data-rule="uppercase">
+                  <span class="rule-icon" aria-hidden="true"></span>
+                  <span>1 uppercase letter</span>
+                </div>
+                <div class="password-rule" data-rule="number">
+                  <span class="rule-icon" aria-hidden="true"></span>
+                  <span>1 number</span>
+                </div>
+                <div class="password-rule" data-rule="special">
+                  <span class="rule-icon" aria-hidden="true"></span>
+                  <span>1 special character</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terms & Conditions -->
+            <div class="field-group" style="margin-bottom: 1.5rem;">
+              <label class="checkbox-group">
+                <input type="checkbox" id="terms-check" required
+                  aria-label="I agree to the Terms and Conditions and Privacy Policy">
+                <span>I agree to the <a href="#" target="_blank">Terms &amp; Conditions</a>
+                  and <a href="#" target="_blank">Privacy Policy</a></span>
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="reg-submit-btn" class="btn btn-primary">
+              <span class="btn-spinner" aria-hidden="true"></span>
+              <span class="btn-text">Create Account</span>
+            </button>
+
+          </form>
+
+          <p class="bottom-link">
+            Already have an account? <a href="/login.html">Login</a>
+          </p>
+
+        </section>
+
+        <!-- ================================================
+             SCREEN 2: Email OTP
+             ================================================ -->
+        <section id="screen-email-otp" class="screen" aria-labelledby="email-otp-title">
+
+          <button class="btn-back" onclick="showScreen('reg')" aria-label="Back to registration">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Back
+          </button>
+
+          <div class="screen-header">
+            <div class="icon-circle blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B5BDB"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <h2 id="email-otp-title" class="screen-title">Verify your email</h2>
+            <p class="screen-subtitle">
+              We have sent a 6-digit code to<br>
+              <strong id="email-otp-target"></strong>
+            </p>
+          </div>
+
+          <div id="email-otp-alert" class="alert alert-error" role="alert">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span class="alert-message"></span>
+          </div>
+
+          <!-- 6 OTP boxes -->
+          <div class="otp-group" role="group" aria-label="Enter 6-digit email OTP">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 1">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 2">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 3">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 4">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 5">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 6">
+          </div>
+
+          <!-- Timer + Resend -->
+          <div class="otp-meta">
+            <p id="email-otp-timer" class="otp-timer" aria-live="polite">
+              Code expires in <span class="timer-value">05:00</span>
+            </p>
+            <p class="otp-resend">
+              <button id="email-resend-btn" class="otp-resend-btn" disabled
+                aria-label="Resend email OTP">Resend code</button>
+              <span id="email-resend-count" class="otp-resend-countdown"></span>
+            </p>
+            <p class="otp-help">Didn't receive the code?</p>
+          </div>
+
+          <button id="email-otp-verify-btn" class="btn btn-primary" style="margin-top:1.5rem;">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">Verify Email</span>
+          </button>
+
+          <!-- Numeric Keypad -->
+          <div class="num-keypad" aria-label="Numeric keypad">
+            <button class="key-btn" data-key="1" type="button">1</button>
+            <button class="key-btn" data-key="2" type="button">2</button>
+            <button class="key-btn" data-key="3" type="button">3</button>
+            <button class="key-btn" data-key="4" type="button">4</button>
+            <button class="key-btn" data-key="5" type="button">5</button>
+            <button class="key-btn" data-key="6" type="button">6</button>
+            <button class="key-btn" data-key="7" type="button">7</button>
+            <button class="key-btn" data-key="8" type="button">8</button>
+            <button class="key-btn" data-key="9" type="button">9</button>
+            <button class="key-btn empty" type="button" disabled aria-hidden="true"></button>
+            <button class="key-btn" data-key="0" type="button">0</button>
+            <button class="key-btn del" data-key="del" type="button" aria-label="Delete">⌫</button>
+          </div>
+
+        </section>
+
+        <!-- ================================================
+             SCREEN 3: SMS OTP
+             ================================================ -->
+        <section id="screen-sms-otp" class="screen" aria-labelledby="sms-otp-title">
+
+          <button class="btn-back" onclick="showScreen('email-otp')" aria-label="Back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Back
+          </button>
+
+          <div class="screen-header">
+            <div class="icon-circle green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07
+                  A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3
+                  a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91
+                  a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7
+                  A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <h2 id="sms-otp-title" class="screen-title">Verify your mobile</h2>
+            <p class="screen-subtitle">
+              We have sent a 6-digit code to<br>
+              <strong id="sms-otp-target"></strong>
+            </p>
+          </div>
+
+          <div id="sms-otp-alert" class="alert alert-error" role="alert">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span class="alert-message"></span>
+          </div>
+
+          <div class="otp-group" role="group" aria-label="Enter 6-digit SMS OTP">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 1">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 2">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 3">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 4">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 5">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 6">
+          </div>
+
+          <div class="otp-meta">
+            <p id="sms-otp-timer" class="otp-timer" aria-live="polite">
+              Code expires in <span class="timer-value">05:00</span>
+            </p>
+            <p class="otp-resend">
+              <button id="sms-resend-btn" class="otp-resend-btn" disabled
+                aria-label="Resend SMS OTP">Resend code</button>
+              <span id="sms-resend-count" class="otp-resend-countdown"></span>
+            </p>
+            <p class="otp-help">Wrong number? <a href="#">Change</a></p>
+          </div>
+
+          <button id="sms-otp-verify-btn" class="btn btn-primary" style="margin-top:1.5rem;">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">Verify Mobile</span>
+          </button>
+
+          <div class="num-keypad" aria-label="Numeric keypad">
+            <button class="key-btn" data-key="1" type="button">1</button>
+            <button class="key-btn" data-key="2" type="button">2</button>
+            <button class="key-btn" data-key="3" type="button">3</button>
+            <button class="key-btn" data-key="4" type="button">4</button>
+            <button class="key-btn" data-key="5" type="button">5</button>
+            <button class="key-btn" data-key="6" type="button">6</button>
+            <button class="key-btn" data-key="7" type="button">7</button>
+            <button class="key-btn" data-key="8" type="button">8</button>
+            <button class="key-btn" data-key="9" type="button">9</button>
+            <button class="key-btn empty" type="button" disabled aria-hidden="true"></button>
+            <button class="key-btn" data-key="0" type="button">0</button>
+            <button class="key-btn del" data-key="del" type="button" aria-label="Delete">⌫</button>
+          </div>
+
+        </section>
+
+        <!-- ================================================
+             SCREEN 4: Set Up MFA
+             ================================================ -->
+        <section id="screen-mfa-setup" class="screen" aria-labelledby="mfa-setup-title">
+
+          <div class="screen-header">
+            <div class="icon-circle blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B5BDB"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <circle cx="12" cy="12" r="1.5" fill="#3B5BDB"/>
+                <path d="M12 8v3M12 15h.01"/>
+              </svg>
+            </div>
+            <h2 id="mfa-setup-title" class="screen-title">Set up Multi-Factor Auth</h2>
+            <p class="screen-subtitle">Add an extra layer of security to protect your account.</p>
+          </div>
+
+          <div id="mfa-setup-alert" class="alert alert-error" role="alert">
+            <span class="alert-message"></span>
+          </div>
+
+          <!-- MFA Method Cards -->
+          <div class="mfa-methods" role="radiogroup" aria-label="MFA method">
+
+            <label class="mfa-method-card selected" data-method="authenticator"
+              tabindex="0" role="radio" aria-checked="true">
+              <input type="radio" name="mfa-method" value="authenticator" checked>
+              <div class="mfa-method-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="mfa-method-text">
+                <div class="mfa-method-title">Authenticator App</div>
+                <div class="mfa-method-desc">Google Authenticator / Authy</div>
+              </div>
+              <div class="mfa-method-radio"></div>
+            </label>
+
+            <label class="mfa-method-card" data-method="sms"
+              tabindex="0" role="radio" aria-checked="false">
+              <input type="radio" name="mfa-method" value="sms">
+              <div class="mfa-method-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07
+                    A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3
+                    a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91
+                    a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7
+                    A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <div class="mfa-method-text">
+                <div class="mfa-method-title">SMS Authentication</div>
+                <div class="mfa-method-desc">Receive codes on your mobile</div>
+              </div>
+              <div class="mfa-method-radio"></div>
+            </label>
+
+            <label class="mfa-method-card" data-method="email"
+              tabindex="0" role="radio" aria-checked="false">
+              <input type="radio" name="mfa-method" value="email">
+              <div class="mfa-method-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="mfa-method-text">
+                <div class="mfa-method-title">Email Authentication</div>
+                <div class="mfa-method-desc">Receive codes on your email</div>
+              </div>
+              <div class="mfa-method-radio"></div>
+            </label>
+
+          </div>
+
+          <button id="mfa-setup-continue-btn" class="btn btn-primary">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">Continue</span>
+          </button>
+
+        </section>
+
+        <!-- ================================================
+             SCREEN 5: Authenticator Setup (QR Code)
+             ================================================ -->
+        <section id="screen-auth-setup" class="screen" aria-labelledby="auth-setup-title">
+
+          <button class="btn-back" onclick="showScreen('mfa-setup')" aria-label="Back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Back
+          </button>
+
+          <div class="screen-header">
+            <div class="icon-circle blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B5BDB"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h2 id="auth-setup-title" class="screen-title">Scan QR Code</h2>
+            <p class="screen-subtitle">
+              Open your authenticator app and<br>scan this QR code
+            </p>
+          </div>
+
+          <div id="auth-setup-alert" class="alert alert-error" role="alert">
+            <span class="alert-message"></span>
+          </div>
+
+          <div class="qr-block">
+            <img id="qr-image" class="qr-image" src="" alt="TOTP QR code for authenticator app">
+            <p class="qr-manual-key">
+              Can't scan? <a href="#" id="show-setup-key-link">Enter setup key</a><br>
+              <span class="key-value" id="qr-setup-key" style="display:none;"></span>
+            </p>
+          </div>
+
+          <button id="auth-setup-continue-btn" class="btn btn-primary">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">I've Scanned the Code</span>
+          </button>
+
+        </section>
+
+        <!-- ================================================
+             SCREEN 6: Authenticator Code Verification
+             ================================================ -->
+        <section id="screen-auth-verify" class="screen" aria-labelledby="auth-verify-title">
+
+          <button class="btn-back" onclick="showScreen('auth-setup')" aria-label="Back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Back
+          </button>
+
+          <div class="screen-header">
+            <div class="icon-circle blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B5BDB"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h2 id="auth-verify-title" class="screen-title">Enter the 6-digit code</h2>
+            <p class="screen-subtitle">Enter the code from your authenticator app</p>
+          </div>
+
+          <div id="auth-verify-alert" class="alert alert-error" role="alert">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span class="alert-message"></span>
+          </div>
+
+          <div class="otp-group" role="group" aria-label="Enter 6-digit authenticator code">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 1">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 2">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 3">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 4">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 5">
+            <input class="otp-input" type="number" min="0" max="9" maxlength="1"
+              inputmode="numeric" aria-label="Digit 6">
+          </div>
+
+          <div class="otp-meta">
+            <p id="auth-verify-timer" class="otp-timer" aria-live="polite">
+              Code expires in <span class="timer-value">00:30</span>
+            </p>
+            <p class="otp-help">Can't access your app?</p>
+          </div>
+
+          <button id="auth-verify-btn" class="btn btn-primary" style="margin-top:1.5rem;">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text">Verify</span>
+          </button>
+
+          <div class="num-keypad" aria-label="Numeric keypad">
+            <button class="key-btn" data-key="1" type="button">1</button>
+            <button class="key-btn" data-key="2" type="button">2</button>
+            <button class="key-btn" data-key="3" type="button">3</button>
+            <button class="key-btn" data-key="4" type="button">4</button>
+            <button class="key-btn" data-key="5" type="button">5</button>
+            <button class="key-btn" data-key="6" type="button">6</button>
+            <button class="key-btn" data-key="7" type="button">7</button>
+            <button class="key-btn" data-key="8" type="button">8</button>
+            <button class="key-btn" data-key="9" type="button">9</button>
+            <button class="key-btn empty" type="button" disabled aria-hidden="true"></button>
+            <button class="key-btn" data-key="0" type="button">0</button>
+            <button class="key-btn del" data-key="del" type="button" aria-label="Delete">⌫</button>
+          </div>
+
+        </section>
+
+        <!-- ================================================
+             SCREEN 7: Registration Success
+             ================================================ -->
+        <section id="screen-success" class="screen" aria-labelledby="success-title">
+
+          <div class="screen-header">
+            <div class="success-icon-wrap">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16A34A"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h2 id="success-title" class="screen-title">Account created!</h2>
+            <p class="screen-subtitle">
+              Your account has been created successfully and MFA is enabled.
+            </p>
+          </div>
+
+          <ul class="success-checklist" aria-label="Registration status">
+            <li>
+              <div class="check-dot">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6L4.5 8.5L10 3.5" stroke="white" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Email verified
+            </li>
+            <li>
+              <div class="check-dot">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6L4.5 8.5L10 3.5" stroke="white" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              Mobile verified
+            </li>
+            <li>
+              <div class="check-dot">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6L4.5 8.5L10 3.5" stroke="white" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              MFA enabled
+            </li>
+          </ul>
+
+          <button id="go-to-login-btn" class="btn btn-primary">
+            Continue to Login
+          </button>
+
+        </section>
+
+      </div><!-- /form-box -->
+    </div><!-- /form-area -->
+
+    <footer class="page-footer">
+      © 2024 SecureID. All rights reserved.
+    </footer>
+
+  </main>
+
+</div><!-- /page-layout -->
+
+<!-- Scripts -->
+<script src="/js/validation.js"></script>
+<script src="/js/register.js"></script>
+
+<script>
+  // Show setup key when link is clicked
+  document.getElementById('show-setup-key-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const keyEl = document.getElementById('qr-setup-key');
+    keyEl.style.display = keyEl.style.display === 'none' ? 'block' : 'none';
+  });
+</script>
+
+</body>
+</html>
