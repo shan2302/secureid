@@ -11,9 +11,7 @@
 
 <div class="page-layout">
 
-  <!-- =====================================================
-       SIDEBAR
-       ===================================================== -->
+  
   <aside class="sidebar" aria-label="SecureID branding">
     <div class="sidebar-logo">
       <div class="sidebar-icon-wrap">
@@ -29,12 +27,10 @@
     </div>
   </aside>
 
-  <!-- =====================================================
-       MAIN CONTENT
-       ===================================================== -->
+  
   <main class="main-content">
 
-    <!-- Step Progress Bar -->
+    
     <nav class="step-bar" aria-label="Login progress">
       <div class="step-item active" aria-current="step">
         <div class="step-circle">1</div>
@@ -52,14 +48,12 @@
     <div class="form-area">
       <div class="form-box">
 
-        <!-- ================================================
-             SCREEN 1: Login Form
-             ================================================ -->
+        
         <section id="screen-login" class="screen active" aria-labelledby="login-title">
 
           <div class="screen-header">
             <div class="icon-circle blue">
-              <!-- Shield + lock icon -->
+              
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B5BDB"
                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -71,7 +65,7 @@
             <p class="screen-subtitle">Login to your account</p>
           </div>
 
-          <!-- Global alert (shown on invalid credentials) -->
+          
           <div id="login-alert" class="alert alert-error" role="alert">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" aria-hidden="true">
@@ -83,7 +77,7 @@
 
           <form id="login-form" novalidate>
 
-            <!-- Email / Username -->
+            
             <div class="field-group">
               <label for="login-email" class="field-label">Email or Username</label>
               <div class="field-wrap">
@@ -97,7 +91,7 @@
                 <input type="email" id="login-email" class="field-input"
                   placeholder="Email or Username" autocomplete="username" required
                   aria-describedby="login-email-error">
-                <!-- Error icon — shown on invalid credentials -->
+                
                 <span id="login-email-err-icon" class="field-error-icon" aria-hidden="true">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2">
@@ -110,7 +104,7 @@
               <p id="login-email-error" class="field-error" role="alert"></p>
             </div>
 
-            <!-- Password -->
+            
             <div class="field-group">
               <label for="login-password" class="field-label">Password</label>
               <div class="field-wrap">
@@ -145,7 +139,7 @@
               <p id="login-password-error" class="field-error" role="alert"></p>
             </div>
 
-            <!-- Remember me + Forgot password -->
+            
             <div class="checkbox-row">
               <label class="checkbox-group">
                 <input type="checkbox" id="remember-me"
@@ -157,7 +151,7 @@
               </a>
             </div>
 
-            <!-- Submit -->
+            
             <button type="submit" id="login-submit-btn" class="btn btn-primary">
               <span class="btn-spinner" aria-hidden="true"></span>
               <span class="btn-text">Login</span>
@@ -167,7 +161,7 @@
 
           <div class="divider">or</div>
 
-          <!-- Continue with Google -->
+          
           <button class="btn btn-google" onclick="alert('Google OAuth not configured in this demo.')"
             type="button">
             <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
@@ -185,9 +179,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 2: Choose MFA Method
-             ================================================ -->
+        
         <section id="screen-choose-method" class="screen" aria-labelledby="choose-method-title">
 
           <button id="back-to-login-btn" class="btn-back" aria-label="Back to login">
@@ -215,7 +207,7 @@
             <span class="alert-message"></span>
           </div>
 
-          <!-- MFA Method Cards -->
+          
           <div class="mfa-methods" role="radiogroup" aria-label="Choose verification method">
 
             <label class="mfa-method-card selected" data-method="email"
@@ -280,9 +272,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 3: OTP Entry (shared for all methods)
-             ================================================ -->
+        
         <section id="screen-otp" class="screen" aria-labelledby="otp-screen-title">
 
           <button id="back-to-choose-btn" class="btn-back" aria-label="Back to choose method">
@@ -294,7 +284,7 @@
           </button>
 
           <div class="screen-header">
-            <!-- Icon updated dynamically by login.js -->
+            
             <div id="otp-icon-wrap" class="icon-circle blue">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B5BDB"
                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -366,8 +356,8 @@
 
         </section>
 
-      </div><!-- /form-box -->
-    </div><!-- /form-area -->
+      </div>
+    </div>
 
     <footer class="page-footer">
       © 2024 SecureID. All rights reserved.
@@ -375,7 +365,7 @@
 
   </main>
 
-</div><!-- /page-layout -->
+</div>
 
 <script src="/js/validation.js"></script>
 <script src="/js/login.js"></script>

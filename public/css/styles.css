@@ -1,36 +1,28 @@
-/* ==========================================================
-   SecureID — Design System & Global Styles
-   Matches the reference UI: blue sidebar (web), white form,
-   step indicators, OTP boxes, and all error/success states.
-   ========================================================== */
 
-/* Import Inter font */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* ----------------------------------------------------------
-   CSS Custom Properties (Design Tokens)
-   ---------------------------------------------------------- */
 :root {
-  /* Primary blue (sidebar, buttons, active OTP border) */
+  
   --clr-primary:        #3B5BDB;
   --clr-primary-dark:   #2F4AC7;
   --clr-primary-light:  #EEF2FF;
   --clr-primary-medium: #4C6EF5;
 
-  /* Success green */
+  
   --clr-success:        #16A34A;
   --clr-success-light:  #DCFCE7;
   --clr-success-icon:   #22C55E;
 
-  /* Error red */
+  
   --clr-error:          #DC2626;
   --clr-error-light:    #FEE2E2;
   --clr-error-border:   #FCA5A5;
 
-  /* Warning / info */
+  
   --clr-warning:        #D97706;
 
-  /* Neutrals */
+  
   --clr-white:          #FFFFFF;
   --clr-gray-50:        #F9FAFB;
   --clr-gray-100:       #F3F4F6;
@@ -43,17 +35,17 @@
   --clr-gray-800:       #1F2937;
   --clr-gray-900:       #111827;
 
-  /* Typography */
+  
   --font:               'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --fs-xs:              0.6875rem;  /* 11px */
-  --fs-sm:              0.8125rem;  /* 13px */
-  --fs-base:            0.9375rem;  /* 15px */
-  --fs-md:              1rem;       /* 16px */
-  --fs-lg:              1.125rem;   /* 18px */
-  --fs-xl:              1.25rem;    /* 20px */
-  --fs-2xl:             1.5rem;     /* 24px */
+  --fs-xs:              0.6875rem;  
+  --fs-sm:              0.8125rem;  
+  --fs-base:            0.9375rem;  
+  --fs-md:              1rem;       
+  --fs-lg:              1.125rem;   
+  --fs-xl:              1.25rem;    
+  --fs-2xl:             1.5rem;     
 
-  /* Spacing */
+  
   --sp-1: 0.25rem;
   --sp-2: 0.5rem;
   --sp-3: 0.75rem;
@@ -64,22 +56,19 @@
   --sp-10: 2.5rem;
   --sp-12: 3rem;
 
-  /* Radii */
+  
   --r-sm:   4px;
   --r-md:   8px;
   --r-lg:   12px;
   --r-xl:   16px;
   --r-full: 9999px;
 
-  /* Shadows */
+  
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
   --shadow-lg: 0 10px 24px rgba(0,0,0,0.1);
 }
 
-/* ----------------------------------------------------------
-   Reset & Base
-   ---------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -109,18 +98,12 @@ a:hover { text-decoration: underline; }
 button { cursor: pointer; font-family: var(--font); }
 input  { font-family: var(--font); }
 
-/* ----------------------------------------------------------
-   Page Layout — Two-Column (Desktop)
-   ---------------------------------------------------------- */
 .page-layout {
   display: grid;
   grid-template-columns: 360px 1fr;
   min-height: 100vh;
 }
 
-/* ----------------------------------------------------------
-   Sidebar (blue panel — left column on desktop)
-   ---------------------------------------------------------- */
 .sidebar {
   background: var(--clr-primary);
   display: flex;
@@ -133,7 +116,6 @@ input  { font-family: var(--font); }
   overflow: hidden;
 }
 
-/* Subtle decorative circles */
 .sidebar::before,
 .sidebar::after {
   content: '';
@@ -186,9 +168,6 @@ input  { font-family: var(--font); }
   max-width: 200px;
 }
 
-/* ----------------------------------------------------------
-   Main Content Area (right column)
-   ---------------------------------------------------------- */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -196,7 +175,6 @@ input  { font-family: var(--font); }
   min-height: 100vh;
 }
 
-/* Step progress bar */
 .step-bar {
   display: flex;
   align-items: center;
@@ -247,14 +225,11 @@ input  { font-family: var(--font); }
   max-width: 64px;
   height: 2px;
   background: var(--clr-gray-200);
-  margin-bottom: 14px; /* align with circle center */
+  margin-bottom: 14px; 
   transition: background 0.25s;
 }
 .step-connector.done { background: var(--clr-success); }
 
-/* ----------------------------------------------------------
-   Form Container (centered in the right column)
-   ---------------------------------------------------------- */
 .form-area {
   flex: 1;
   display: flex;
@@ -269,15 +244,9 @@ input  { font-family: var(--font); }
   max-width: 400px;
 }
 
-/* ----------------------------------------------------------
-   Screen Management — screens shown/hidden via JS
-   ---------------------------------------------------------- */
 .screen         { display: none; }
 .screen.active  { display: block; }
 
-/* ----------------------------------------------------------
-   Screen Header (icon + title + subtitle)
-   ---------------------------------------------------------- */
 .screen-header {
   text-align: center;
   margin-bottom: var(--sp-6);
@@ -315,9 +284,6 @@ input  { font-family: var(--font); }
   font-weight: 500;
 }
 
-/* ----------------------------------------------------------
-   Back Button
-   ---------------------------------------------------------- */
 .btn-back {
   display: inline-flex;
   align-items: center;
@@ -332,9 +298,6 @@ input  { font-family: var(--font); }
 }
 .btn-back:hover { color: var(--clr-gray-800); }
 
-/* ----------------------------------------------------------
-   Form Fields
-   ---------------------------------------------------------- */
 .field-group {
   margin-bottom: var(--sp-4);
 }
@@ -387,16 +350,13 @@ input  { font-family: var(--font); }
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-/* No left icon — smaller padding */
 .field-input.no-icon-left { padding-left: 14px; }
 
-/* Input focus */
 .field-input:focus {
   border-color: var(--clr-primary);
   box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.12);
 }
 
-/* Input error state */
 .field-input.error {
   border-color: var(--clr-error);
 }
@@ -412,7 +372,6 @@ input  { font-family: var(--font); }
 }
 .field-error.visible { display: block; }
 
-/* Phone field with country code */
 .phone-wrap {
   display: flex;
   gap: var(--sp-2);
@@ -451,9 +410,6 @@ input  { font-family: var(--font); }
 }
 .phone-input.error { border-color: var(--clr-error); }
 
-/* ----------------------------------------------------------
-   Password Strength Indicator
-   ---------------------------------------------------------- */
 .password-rules {
   margin-top: var(--sp-3);
   padding: var(--sp-3) var(--sp-4);
@@ -500,9 +456,6 @@ input  { font-family: var(--font); }
   color: white;
 }
 
-/* ----------------------------------------------------------
-   Buttons
-   ---------------------------------------------------------- */
 .btn {
   display: flex;
   align-items: center;
@@ -541,7 +494,6 @@ input  { font-family: var(--font); }
   color: var(--clr-white);
 }
 
-/* Google button */
 .btn-google {
   background: var(--clr-white);
   color: var(--clr-gray-700);
@@ -550,7 +502,6 @@ input  { font-family: var(--font); }
 }
 .btn-google:hover { background: var(--clr-gray-50); }
 
-/* Spinner in button */
 .btn-spinner {
   width: 18px; height: 18px;
   border: 2px solid rgba(255,255,255,0.4);
@@ -562,9 +513,6 @@ input  { font-family: var(--font); }
 .btn.loading .btn-spinner { display: block; }
 .btn.loading .btn-text    { display: none; }
 
-/* ----------------------------------------------------------
-   Checkbox
-   ---------------------------------------------------------- */
 .checkbox-group {
   display: flex;
   align-items: center;
@@ -586,9 +534,6 @@ input  { font-family: var(--font); }
   margin-bottom: var(--sp-5);
 }
 
-/* ----------------------------------------------------------
-   Divider
-   ---------------------------------------------------------- */
 .divider {
   display: flex;
   align-items: center;
@@ -605,9 +550,6 @@ input  { font-family: var(--font); }
   background: var(--clr-gray-200);
 }
 
-/* ----------------------------------------------------------
-   Alert / Banner
-   ---------------------------------------------------------- */
 .alert {
   display: none;
   align-items: flex-start;
@@ -636,9 +578,6 @@ input  { font-family: var(--font); }
   border: 1px solid #a5b4fc;
 }
 
-/* ----------------------------------------------------------
-   OTP Input Row (6 boxes)
-   ---------------------------------------------------------- */
 .otp-group {
   display: flex;
   gap: var(--sp-2);
@@ -659,7 +598,7 @@ input  { font-family: var(--font); }
   outline: none;
   caret-color: var(--clr-primary);
   transition: border-color 0.15s, box-shadow 0.15s;
-  /* Hide spinners on number inputs */
+  
   -moz-appearance: textfield;
 }
 .otp-input::-webkit-outer-spin-button,
@@ -677,7 +616,6 @@ input  { font-family: var(--font); }
   border-color: var(--clr-primary);
 }
 
-/* OTP meta info (timer + resend) */
 .otp-meta {
   text-align: center;
   margin-top: var(--sp-2);
@@ -719,7 +657,6 @@ input  { font-family: var(--font); }
   color: var(--clr-gray-400);
 }
 
-/* Numeric Keypad (mobile-style) */
 .num-keypad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -746,9 +683,6 @@ input  { font-family: var(--font); }
 .key-btn.del     { font-size: var(--fs-base); color: var(--clr-gray-500); }
 .key-btn.empty   { background: transparent; border-color: transparent; cursor: default; }
 
-/* ----------------------------------------------------------
-   MFA Method Selection (radio cards)
-   ---------------------------------------------------------- */
 .mfa-methods {
   display: flex;
   flex-direction: column;
@@ -832,9 +766,6 @@ input  { font-family: var(--font); }
 }
 .mfa-method-card.selected .mfa-method-radio::after { opacity: 1; }
 
-/* ----------------------------------------------------------
-   QR Code block
-   ---------------------------------------------------------- */
 .qr-block {
   text-align: center;
   margin: var(--sp-4) 0;
@@ -867,9 +798,6 @@ input  { font-family: var(--font); }
   word-break: break-all;
 }
 
-/* ----------------------------------------------------------
-   Success Screen
-   ---------------------------------------------------------- */
 .success-icon-wrap {
   width: 80px;
   height: 80px;
@@ -907,9 +835,6 @@ input  { font-family: var(--font); }
   flex-shrink: 0;
 }
 
-/* ----------------------------------------------------------
-   Footer
-   ---------------------------------------------------------- */
 .page-footer {
   text-align: center;
   padding: var(--sp-4);
@@ -918,9 +843,6 @@ input  { font-family: var(--font); }
   border-top: 1px solid var(--clr-gray-100);
 }
 
-/* ----------------------------------------------------------
-   Bottom link row
-   ---------------------------------------------------------- */
 .bottom-link {
   text-align: center;
   margin-top: var(--sp-5);
@@ -928,9 +850,6 @@ input  { font-family: var(--font); }
   color: var(--clr-gray-500);
 }
 
-/* ----------------------------------------------------------
-   Input with error icon on right (login invalid)
-   ---------------------------------------------------------- */
 .field-error-icon {
   position: absolute;
   right: 14px;
@@ -940,9 +859,6 @@ input  { font-family: var(--font); }
 }
 .field-error-icon.visible { display: flex; }
 
-/* ----------------------------------------------------------
-   Dashboard / Protected area
-   ---------------------------------------------------------- */
 .dashboard-wrap {
   max-width: 680px;
   margin: 0 auto;
@@ -1050,9 +966,6 @@ input  { font-family: var(--font); }
   line-height: 1.6;
 }
 
-/* ----------------------------------------------------------
-   Animations
-   ---------------------------------------------------------- */
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
@@ -1064,9 +977,6 @@ input  { font-family: var(--font); }
 
 .screen.active { animation: fadeIn 0.2s ease-out; }
 
-/* ----------------------------------------------------------
-   Responsive — Mobile
-   ---------------------------------------------------------- */
 @media (max-width: 768px) {
   .page-layout {
     grid-template-columns: 1fr;

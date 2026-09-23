@@ -11,13 +11,11 @@
 
 <div class="page-layout">
 
-  <!-- =====================================================
-       SIDEBAR (left column — desktop)
-       ===================================================== -->
+  
   <aside class="sidebar" aria-label="SecureID branding">
     <div class="sidebar-logo">
       <div class="sidebar-icon-wrap">
-        <!-- Shield + lock icon -->
+        
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white"
           stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -30,12 +28,10 @@
     </div>
   </aside>
 
-  <!-- =====================================================
-       MAIN CONTENT (right column)
-       ===================================================== -->
+  
   <main class="main-content">
 
-    <!-- Step Progress Bar -->
+    
     <nav class="step-bar" aria-label="Registration progress">
       <div class="step-item active" aria-current="step">
         <div class="step-circle">1</div>
@@ -58,13 +54,11 @@
       </div>
     </nav>
 
-    <!-- Form Area -->
+    
     <div class="form-area">
       <div class="form-box">
 
-        <!-- ================================================
-             SCREEN 1: Registration Form
-             ================================================ -->
+        
         <section id="screen-reg" class="screen active" aria-labelledby="reg-title">
 
           <div class="screen-header">
@@ -72,7 +66,7 @@
             <p class="screen-subtitle">Let's get you started</p>
           </div>
 
-          <!-- Global alert -->
+          
           <div id="reg-alert" class="alert alert-error" role="alert">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" aria-hidden="true">
@@ -84,7 +78,7 @@
 
           <form id="register-form" novalidate>
 
-            <!-- Full Name -->
+            
             <div class="field-group">
               <label for="reg-name" class="field-label">Full Name</label>
               <div class="field-wrap">
@@ -102,7 +96,7 @@
               <p id="reg-name-error" class="field-error" role="alert"></p>
             </div>
 
-            <!-- Email -->
+            
             <div class="field-group">
               <label for="reg-email" class="field-label">Email</label>
               <div class="field-wrap">
@@ -120,7 +114,7 @@
               <p id="reg-email-error" class="field-error" role="alert"></p>
             </div>
 
-            <!-- Mobile Number -->
+            
             <div class="field-group">
               <label for="reg-phone" class="field-label">Mobile Number</label>
               <div class="phone-wrap">
@@ -135,7 +129,7 @@
               <p id="reg-phone-error" class="field-error" role="alert"></p>
             </div>
 
-            <!-- Password -->
+            
             <div class="field-group">
               <label for="reg-password" class="field-label">Password</label>
               <div class="field-wrap">
@@ -160,7 +154,7 @@
               </div>
               <p id="reg-password-error" class="field-error" role="alert"></p>
 
-              <!-- Password strength rules -->
+              
               <div id="password-rules" class="password-rules" aria-live="polite">
                 <p class="password-rules-title">Password must contain:</p>
                 <div class="password-rule" data-rule="length">
@@ -182,7 +176,7 @@
               </div>
             </div>
 
-            <!-- Terms & Conditions -->
+            
             <div class="field-group" style="margin-bottom: 1.5rem;">
               <label class="checkbox-group">
                 <input type="checkbox" id="terms-check" required
@@ -192,7 +186,7 @@
               </label>
             </div>
 
-            <!-- Submit -->
+            
             <button type="submit" id="reg-submit-btn" class="btn btn-primary">
               <span class="btn-spinner" aria-hidden="true"></span>
               <span class="btn-text">Create Account</span>
@@ -206,9 +200,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 2: Email OTP
-             ================================================ -->
+        
         <section id="screen-email-otp" class="screen" aria-labelledby="email-otp-title">
 
           <button class="btn-back" onclick="showScreen('reg')" aria-label="Back to registration">
@@ -243,7 +235,7 @@
             <span class="alert-message"></span>
           </div>
 
-          <!-- 6 OTP boxes -->
+          
           <div class="otp-group" role="group" aria-label="Enter 6-digit email OTP">
             <input class="otp-input" type="number" min="0" max="9" maxlength="1"
               inputmode="numeric" aria-label="Digit 1">
@@ -259,7 +251,7 @@
               inputmode="numeric" aria-label="Digit 6">
           </div>
 
-          <!-- Timer + Resend -->
+          
           <div class="otp-meta">
             <p id="email-otp-timer" class="otp-timer" aria-live="polite">
               Code expires in <span class="timer-value">05:00</span>
@@ -277,7 +269,7 @@
             <span class="btn-text">Verify Email</span>
           </button>
 
-          <!-- Numeric Keypad -->
+          
           <div class="num-keypad" aria-label="Numeric keypad">
             <button class="key-btn" data-key="1" type="button">1</button>
             <button class="key-btn" data-key="2" type="button">2</button>
@@ -295,9 +287,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 3: SMS OTP
-             ================================================ -->
+        
         <section id="screen-sms-otp" class="screen" aria-labelledby="sms-otp-title">
 
           <button class="btn-back" onclick="showScreen('email-otp')" aria-label="Back">
@@ -384,9 +374,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 4: Set Up MFA
-             ================================================ -->
+        
         <section id="screen-mfa-setup" class="screen" aria-labelledby="mfa-setup-title">
 
           <div class="screen-header">
@@ -406,7 +394,7 @@
             <span class="alert-message"></span>
           </div>
 
-          <!-- MFA Method Cards -->
+          
           <div class="mfa-methods" role="radiogroup" aria-label="MFA method">
 
             <label class="mfa-method-card selected" data-method="authenticator"
@@ -471,9 +459,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 5: Authenticator Setup (QR Code)
-             ================================================ -->
+        
         <section id="screen-auth-setup" class="screen" aria-labelledby="auth-setup-title">
 
           <button class="btn-back" onclick="showScreen('mfa-setup')" aria-label="Back">
@@ -516,9 +502,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 6: Authenticator Code Verification
-             ================================================ -->
+        
         <section id="screen-auth-verify" class="screen" aria-labelledby="auth-verify-title">
 
           <button class="btn-back" onclick="showScreen('auth-setup')" aria-label="Back">
@@ -594,9 +578,7 @@
 
         </section>
 
-        <!-- ================================================
-             SCREEN 7: Registration Success
-             ================================================ -->
+        
         <section id="screen-success" class="screen" aria-labelledby="success-title">
 
           <div class="screen-header">
@@ -649,8 +631,8 @@
 
         </section>
 
-      </div><!-- /form-box -->
-    </div><!-- /form-area -->
+      </div>
+    </div>
 
     <footer class="page-footer">
       © 2024 SecureID. All rights reserved.
@@ -658,14 +640,13 @@
 
   </main>
 
-</div><!-- /page-layout -->
+</div>
 
-<!-- Scripts -->
 <script src="/js/validation.js"></script>
 <script src="/js/register.js"></script>
 
 <script>
-  // Show setup key when link is clicked
+  
   document.getElementById('show-setup-key-link')?.addEventListener('click', (e) => {
     e.preventDefault();
     const keyEl = document.getElementById('qr-setup-key');

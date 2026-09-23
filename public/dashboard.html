@@ -36,7 +36,6 @@
 </head>
 <body>
 
-<!-- Header -->
 <header class="page-header">
   <div class="dashboard-wrap" style="padding-top:0;padding-bottom:0;">
     <div class="dash-header">
@@ -72,9 +71,7 @@
 
 <div class="dashboard-wrap">
 
-  <!-- =====================================================
-       User Profile Card (/api/me)
-       ===================================================== -->
+  
   <div class="user-card">
     <div class="user-card-header">
       <div id="user-avatar" class="user-avatar">?</div>
@@ -99,9 +96,7 @@
     </div>
   </div>
 
-  <!-- =====================================================
-       GET /api/me Response
-       ===================================================== -->
+  
   <p class="section-title">GET /api/me — Response</p>
   <div class="api-demo-card">
     <div class="api-demo-label">// Server-validated user profile (never exposes passwordHash or totpSecret)</div>
@@ -112,9 +107,7 @@
     The server verified the session before returning your profile.
   </p>
 
-  <!-- =====================================================
-       JWT Bearer Token Demo
-       ===================================================== -->
+  
   <p class="section-title" style="margin-top:var(--sp-8);">
     POST /api/token → GET /api/protected — JWT Bearer Demo
   </p>
@@ -141,9 +134,7 @@
     for the session, and as a Bearer token for the /api/protected demo only.
   </p>
 
-  <!-- =====================================================
-       Authentication Architecture Explanation
-       ===================================================== -->
+  
   <div class="user-card" style="margin-top:var(--sp-8);">
     <p class="section-title">How Authentication Works</p>
 
@@ -172,7 +163,7 @@
     </div>
   </div>
 
-</div><!-- /dashboard-wrap -->
+</div>
 
 <script src="/js/validation.js"></script>
 <script src="/js/auth.js"></script>
